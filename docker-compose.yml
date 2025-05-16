@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:8.0.6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - alitnest-net
+
+  alitnest-be:
+    build: .
+    container_name: alitnest-be
+    ports:
+      - "3000:80"
+    depends_on:
+      - mongodb
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongodb/alitnest?directConnection=true
+    networks:
+      - alitnest-net
+
+volumes:
+  mongodb_data:
+
+networks:
+  alitnest-net:
+    driver: bridge

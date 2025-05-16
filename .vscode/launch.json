@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "http://202.10.41.202:3000/register",
+            "request": "launch",
+            "url": "http://202.10.41.202:3000/register"
+        }
+    ]
+}
