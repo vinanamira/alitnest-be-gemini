@@ -18,7 +18,7 @@ router.get('/profile/:id', userController.getUserProfile);
 router.put('/profile/:id', userController.updateUserProfile);  
 router.put('/profile/password/:id', userController.updatePassword);  
 
-// ============== OpenAI ================
+// ============== GenAI ================
 router.post('/nutriwise', upload.single('file'), nutriwise.analyzeFood);
 
 // ============== Daily Goals ===============
